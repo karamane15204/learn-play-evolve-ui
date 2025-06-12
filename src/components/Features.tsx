@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Users, 
   UserCheck, 
-  UserGraduate, 
+  GraduationCap, 
   Shield,
   BarChart3,
   Upload,
@@ -34,7 +34,7 @@ const Features = () => {
       iconColor: "text-green-600"
     },
     {
-      icon: UserGraduate,
+      icon: GraduationCap,
       title: "Student Experience",
       description: "Access courses, track learning progress, and engage with interactive content",
       badge: "Learner",
