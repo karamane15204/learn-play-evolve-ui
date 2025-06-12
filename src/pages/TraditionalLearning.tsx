@@ -1,9 +1,10 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, FileText, Video, PenTool, Clock, Users } from 'lucide-react';
+import { BookOpen, FileText, Video, PenTool, Clock, Users, ArrowLeft } from 'lucide-react';
 
 const TraditionalLearning = () => {
   const courses = [
@@ -58,6 +59,16 @@ const TraditionalLearning = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Back to Home Button */}
+      <div className="container mx-auto px-4 pt-6">
+        <Link to="/">
+          <Button variant="outline" className="mb-4">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
         <div className="container mx-auto px-4 text-center">
