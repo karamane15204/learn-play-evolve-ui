@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, GraduationCap } from 'lucide-react';
 
@@ -11,24 +12,40 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="bg-primary rounded-lg p-2">
               <GraduationCap className="h-6 w-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-foreground">E-Learn</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#courses" className="text-muted-foreground hover:text-foreground transition-colors">Courses</a>
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+            <Link to="/traditional-learning" className="text-muted-foreground hover:text-foreground transition-colors">
+              Traditional Learning
+            </Link>
+            <Link to="/game-learning" className="text-muted-foreground hover:text-foreground transition-colors">
+              Game Learning
+            </Link>
+            <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              About Us
+            </Link>
+            <Link to="/teacher-dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
+              Teacher
+            </Link>
+            <Link to="/student-dashboard" className="text-muted-foreground hover:text-foreground transition-colors">
+              Student
+            </Link>
           </nav>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button>Get Started</Button>
+            <Link to="/login">
+              <Button variant="ghost">Sign In</Button>
+            </Link>
+            <Link to="/signup">
+              <Button>Get Started</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -44,12 +61,48 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <a href="#courses" className="text-muted-foreground hover:text-foreground transition-colors">Courses</a>
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-              <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+              <Link 
+                to="/traditional-learning" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Traditional Learning
+              </Link>
+              <Link 
+                to="/game-learning" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Game Learning
+              </Link>
+              <Link 
+                to="/about" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/teacher-dashboard" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Teacher
+              </Link>
+              <Link 
+                to="/student-dashboard" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Student
+              </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
-                <Button variant="ghost" className="justify-start">Sign In</Button>
-                <Button className="justify-start">Get Started</Button>
+                <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                  <Button variant="ghost" className="justify-start w-full">Sign In</Button>
+                </Link>
+                <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="justify-start w-full">Get Started</Button>
+                </Link>
               </div>
             </div>
           </div>
